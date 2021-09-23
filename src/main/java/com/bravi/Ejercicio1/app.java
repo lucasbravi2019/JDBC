@@ -5,7 +5,7 @@ import java.util.Scanner;
 import com.bravi.Ejercicio1.servicio.FabricanteService;
 import com.bravi.Ejercicio1.servicio.ProductoService;
 
-public class main {
+public class app {
 
     static Scanner scan = new Scanner(System.in);
     static ProductoService prod = new ProductoService();
