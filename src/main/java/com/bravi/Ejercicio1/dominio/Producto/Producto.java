@@ -1,4 +1,4 @@
-package com.bravi.dominio.Producto;
+package com.bravi.Ejercicio1.dominio.Producto;
 
 public class Producto {
 
@@ -45,7 +45,7 @@ public class Producto {
         return this.codigoFabricante;
     }
 
-    public void setCodigo_fabricante(int codigoFabricante) {
+    public void setCodigoFabricante(int codigoFabricante) {
         this.codigoFabricante = codigoFabricante;
     }
 

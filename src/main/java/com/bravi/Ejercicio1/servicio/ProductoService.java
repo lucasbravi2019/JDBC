@@ -1,11 +1,14 @@
-package com.bravi.servicio;
+package com.bravi.Ejercicio1.servicio;
 
 import java.util.Scanner;
 
-import com.bravi.persistence.ProductoDao;
+import com.bravi.Ejercicio1.dominio.Producto.Producto;
+import com.bravi.Ejercicio1.persistence.FabricanteDao;
+import com.bravi.Ejercicio1.persistence.ProductoDao;
 
 public class ProductoService {
     ProductoDao prod = new ProductoDao();
+    FabricanteDao fab = new FabricanteDao();
     Scanner scan = new Scanner(System.in);
 
     public void seleccionarTodo() {
@@ -63,20 +66,13 @@ public class ProductoService {
             System.out.println("Ingrese el precio del producto");
             precio = scan.nextDouble();
             System.out.println("Ingrese el codigo del fabricante");
-            prod.seleccionarFabricantes();
+            fab.seleccionarFabricantes();
             codigo = scan.nextInt();
-            prod.insertarProducto(nombre, precio, codigo);
-        } catch (Exception e) {
-            // TODO: handle exception
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public void insertarFabricante() {
-        System.out.println("Ingrese el nombre del fabricante");
-        String nombre = scan.nextLine();
-        try {
-            prod.insertarFabricante(nombre);
+            Producto producto = new Producto();
+            producto.setNombre(nombre);
+            producto.setPrecio(precio);
+            producto.setCodigoFabricante(codigo);
+            prod.insertarProducto(producto);
         } catch (Exception e) {
             // TODO: handle exception
             System.out.println(e.getMessage());
@@ -84,7 +80,6 @@ public class ProductoService {
     }
 
     public void modificarProducto() {
-
         try {
             System.out.println("Ingrese el nombre del producto a modificar");
             String nombreProducto = scan.nextLine();
@@ -93,9 +88,13 @@ public class ProductoService {
             System.out.println("Ingrese el precio del nuevo producto");
             double precio = scan.nextDouble();
             System.out.println("Ingrese el codigo de fabricante del nuevo producto");
-            prod.seleccionarFabricantes();
+            fab.seleccionarFabricantes();
             int fabricante = scan.nextInt();
-            prod.modificarProducto(nombre, precio, fabricante, nombreProducto);
+            Producto producto = new Producto();
+            producto.setNombre(nombre);
+            producto.setPrecio(precio);
+            producto.setCodigoFabricante(fabricante);
+            prod.modificarProducto(producto, nombreProducto);
         } catch (Exception e) {
             // TODO: handle exception
             System.out.println(e.getMessage());

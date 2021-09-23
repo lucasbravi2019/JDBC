@@ -1,4 +1,4 @@
-package com.bravi.persistence;
+package com.bravi.Ejercicio1.persistence;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

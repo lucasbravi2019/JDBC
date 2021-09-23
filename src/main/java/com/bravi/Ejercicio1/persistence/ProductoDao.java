@@ -1,8 +1,8 @@
-package com.bravi.persistence;
+package com.bravi.Ejercicio1.persistence;
 
 import java.sql.ResultSet;
 
-import com.bravi.dominio.Producto.Producto;
+import com.bravi.Ejercicio1.dominio.Producto.Producto;
 
 public final class ProductoDao extends DAO {
 
@@ -118,10 +118,10 @@ public final class ProductoDao extends DAO {
         }
     }
 
-    public void insertarProducto(String nombre, double precio, int codigo) throws Exception {
+    public void insertarProducto(Producto producto) throws Exception {
         try {
-            String sql = "INSERT INTO producto (nombre, precio, codigo_fabricante) VALUES ('" + nombre + "', " + precio
-                    + ", " + codigo + ")";
+            String sql = "INSERT INTO producto (nombre, precio, codigo_fabricante) VALUES ('" + producto.getNombre()
+                    + "', " + producto.getPrecio() + ", " + producto.getCodigoFabricante() + ")";
             insertarModificarEliminar(sql);
         } catch (Exception e) {
             // TODO: handle exception
@@ -129,34 +129,11 @@ public final class ProductoDao extends DAO {
         }
     }
 
-    public void seleccionarFabricantes() throws Exception {
+    public void modificarProducto(Producto producto, String nombreProducto) throws Exception {
         try {
-            String sql = "SELECT codigo, nombre FROM fabricante";
-            ResultSet rs = select(sql);
-            while (rs.next()) {
-                System.out.println("Codigo: " + rs.getInt("codigo") + "\tNombre: " + rs.getString("nombre"));
-            }
-        } catch (Exception e) {
-            // TODO: handle exception
-            throw e;
-        }
-    }
-
-    public void insertarFabricante(String nombre) throws Exception {
-        try {
-            String sql = "INSERT INTO fabricante (nombre) VALUES ('" + nombre + "')";
-            insertarModificarEliminar(sql);
-        } catch (Exception e) {
-            // TODO: handle exception
-            throw e;
-        }
-    }
-
-    public void modificarProducto(String nombre, double precio, int fabricante, String nombreProducto)
-            throws Exception {
-        try {
-            String sql = "UPDATE producto SET nombre = '" + nombre + "', precio = " + precio + ", codigo_fabricante = "
-                    + fabricante + " WHERE nombre = '" + nombreProducto + "';";
+            String sql = "UPDATE producto SET nombre = '" + producto.getNombre() + "', precio = " + producto.getPrecio()
+                    + ", codigo_fabricante = " + producto.getCodigoFabricante() + " WHERE nombre = '" + nombreProducto
+                    + "';";
             insertarModificarEliminar(sql);
         } catch (Exception e) {
             // TODO: handle exception
