@@ -27,28 +27,28 @@ public class main {
                 p.seleccionarTodo();
             }
             if (operacion == 2) {
-
+                p.seleccionarNombrePrecio();
             }
             if (operacion == 3) {
-
+                p.seleccionarRangoPrecio();
             }
             if (operacion == 4) {
-
+                p.seleccionarPortatiles();
             }
             if (operacion == 5) {
-
+                p.seleccionarProductoBarato();
             }
             if (operacion == 6) {
-
+                p.insertarProducto();
             }
             if (operacion == 7) {
-
+                p.insertarFabricante();
             }
             if (operacion == 8) {
-
+                p.modificarProducto();
             }
             if (operacion == 9) {
-
+                break;
             }
         }
     }
